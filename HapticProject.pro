@@ -28,13 +28,21 @@ SOURCES += \
         mainwindow.cpp \
     walkgame.cpp \
     inputmanager.cpp \
-    walkgameview.cpp
+    walkgameview.cpp \
+    keygameview.cpp \
+    keygame.cpp \
+    game.cpp \
+    drinkgameview.cpp
 
 HEADERS += \
         mainwindow.h \
     walkgame.h \
     inputmanager.h \
-    walkgameview.h
+    walkgameview.h \
+    keygameview.h \
+    keygame.h \
+    game.h \
+    drinkgameview.h
 
 FORMS += \
         mainwindow.ui
