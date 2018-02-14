@@ -1,15 +1,16 @@
 #ifndef WALKGAME_H
 #define WALKGAME_H
 
+#include "game.h"
 
-class WalkGame
+
+
+class WalkGame : public Game
 {
 private:
-    bool gameover;
 public:
     WalkGame();
-    bool getGameover() const;
-    void setGameover(bool value);
+    void initView(QGraphicsView *vue);
 };
 
 #endif // WALKGAME_H

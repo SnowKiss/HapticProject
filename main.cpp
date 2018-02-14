@@ -14,6 +14,8 @@
 #include <QMouseEvent>
 #include <sstream>
 #include <string>
+#include "keygame.h".h"
+#include "keygameview.h"
 
 int main(int argc, char *argv[])
 {
@@ -24,10 +26,18 @@ int main(int argc, char *argv[])
 
     // initialisation de la partie
     WalkGame * wg = new WalkGame();
-
+    //KeyGame * kg = new KeyGame(2);
     // initialisation de la vue
+    //KeyGameView * kgv = new KeyGameView(w.getVue());
+    Scenario * s = new Scenario();
+    s->addGame(wg);
+    w.setScenario(s);
+
+    s->start(w.getVue());
     WalkGameView * wgv = new WalkGameView(w.getVue());
-    w.setListeItems(wgv->getComponentList());
+
+
+
 
     // initilisation de l'entrée
     //w.setMouseTracking(true);

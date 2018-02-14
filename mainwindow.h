@@ -1,6 +1,8 @@
 #ifndef MAINWINDOW_H
 #define MAINWINDOW_H
 
+#include "scenario.h"
+
 #include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QMainWindow>
@@ -14,14 +16,15 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 private:
     void mouseMoveEvent(QMouseEvent *event);
+    int step;
     QGraphicsView * vue;
-    QList<QGraphicsItem*> listeItems;
+    Scenario * scenario;
 public:
     explicit MainWindow(QWidget *parent = 0);
     ~MainWindow();
     QGraphicsView *getVue() const;
-
-    void setListeItems(const QList<QGraphicsItem *> &value);
+    void setScenario(Scenario * s);
+    void changeStep();
 
 private:
     Ui::MainWindow *ui;
