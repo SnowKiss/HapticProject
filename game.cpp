@@ -5,6 +5,12 @@ GameType Game::getType() const
     return type;
 }
 
+Game::Game()
+{
+    this->gameover=false;
+    this->win=false;
+}
+
 QList<QGraphicsItem *> Game::getAssetList() const
 {
     return assetList;
@@ -35,8 +41,8 @@ void Game::setWin(bool value)
     win = value;
 }
 
-Game::Game()
+void Game::initView(QGraphicsView *vue)
 {
-    this->setGameover(false);
-    this->setWin(false);
+
 }
+

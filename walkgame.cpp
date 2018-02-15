@@ -36,8 +36,9 @@ void WalkGame::initView(QGraphicsView *vue)
 
     vue->setScene(scene);
 
-    this->componentList.append(player);
-    this->componentList.append(poubelle);
-    this->componentList.append(passant);
-    this->componentList.append(chien);
+    this->assetList.clear();
+    this->assetList.append(player);
+    this->assetList.append(poubelle);
+    this->assetList.append(passant);
+    this->assetList.append(chien);
 }

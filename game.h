@@ -8,7 +8,6 @@
 class Game
 {
 protected:
-    QList<QGraphicsItem*> componentList;
     GameType type;
     QList<QGraphicsItem*> assetList;
     bool gameover;

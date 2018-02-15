@@ -16,15 +16,13 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 private:
     void mouseMoveEvent(QMouseEvent *event);
-    int step;
     QGraphicsView * vue;
     Scenario * scenario;
 public:
-    explicit MainWindow(QWidget *parent = 0);
+    explicit MainWindow(Scenario * scenario, QWidget *parent = 0);
     ~MainWindow();
     QGraphicsView *getVue() const;
     void setScenario(Scenario * s);
-    void changeStep();
 
 private:
     Ui::MainWindow *ui;

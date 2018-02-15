@@ -8,6 +8,7 @@ class KeyGame: public Game
 private:
 public:
     KeyGame();
+    void initView(QGraphicsView *vue);
 };
 
 #endif // KEYGAME_H

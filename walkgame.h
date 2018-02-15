@@ -10,7 +10,7 @@ class WalkGame : public Game
 private:
 public:
     WalkGame();
-    void initView(QGraphicsView *vue);
+    virtual void initView(QGraphicsView *vue);
 };
 
 #endif // WALKGAME_H

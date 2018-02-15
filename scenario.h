@@ -9,15 +9,16 @@
 class Scenario
 {
 private:
-    QList<Game*> * storyboard;
+    QList<Game*> storyboard;
     Game * currentGame;
 public:
     Scenario();
-    QList<Game *> *getStoryboard() const;
     void addGame(Game* g);
     void setCurrentGame(Game * g);
     Game *getCurrentGame() const;
     void start(QGraphicsView *vue);
+    QList<Game *> getStoryboard() const;
+    void nextGame();
 };
 
 #endif // SCENARIO_H
