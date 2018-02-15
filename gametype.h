@@ -5,7 +5,8 @@ enum class GameType
 {
     DG,
     KG,
-    WG
+    WG,
+    PAN
 };
 
 #endif // GAMETYPE_H

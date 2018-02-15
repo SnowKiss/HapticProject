@@ -30,7 +30,8 @@ SOURCES += \
     keygame.cpp \
     game.cpp \
     scenario.cpp \
-    drinkgame.cpp
+    drinkgame.cpp \
+    panneau.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -39,7 +40,8 @@ HEADERS += \
     game.h \
     gametype.h \
     scenario.h \
-    drinkgame.h
+    drinkgame.h \
+    panneau.h
 
 FORMS += \
         mainwindow.ui

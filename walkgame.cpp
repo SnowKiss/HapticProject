@@ -14,6 +14,7 @@ void WalkGame::initView(QGraphicsView *vue)
     // initialisation de la scène
     QGraphicsScene *scene = new QGraphicsScene();
     scene->setSceneRect(0,0,850,550);
+
     // creation du personnage
     QGraphicsRectItem *player = new QGraphicsRectItem();
     player->setRect(0,0,80,180);

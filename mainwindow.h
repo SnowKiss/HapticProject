@@ -18,6 +18,7 @@ private:
     void mouseMoveEvent(QMouseEvent *event);
     QGraphicsView * vue;
     Scenario * scenario;
+    bool buttonPressed = false;
 public:
     explicit MainWindow(Scenario * scenario, QWidget *parent = 0);
     ~MainWindow();

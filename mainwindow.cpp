@@ -43,10 +43,31 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event)
 // COORDONNEES DU CURSEUR + Gameloop
 bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 {
+
     if(this->scenario)
     {
         switch (this->scenario->getCurrentGame()->getType()) {
         case GameType::DG:
+            if(buttonPressed)
+            {
+                this->scenario->getCurrentGame()->getAssetList().first()->setTransformOriginPoint(this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center());
+                this->scenario->getCurrentGame()->getAssetList().first()->setRotation(this->scenario->getCurrentGame()->getAssetList().first()->rotation()+0.005);
+                if(this->scenario->getCurrentGame()->getAssetList().first()->rotation()>90)
+                {
+                    if((this->scenario->getCurrentGame()->getAssetList().first()->x() > 530)&&(this->scenario->getCurrentGame()->getAssetList().first()->x() < 600))
+                    {
+                        this->scenario->getCurrentGame()->setWin(true);
+                        this->scenario->nextGame();
+                        this->scenario->getCurrentGame()->initView(this->getVue());
+                    }
+                    else
+                    {
+                        qInfo("Perdu");
+                        this->buttonPressed=false;
+                        this->scenario->getCurrentGame()->initView(this->getVue());
+                    }
+                }
+            }
             if (event->type() == QEvent::MouseMove)
             {
                   if(this->scenario->getCurrentGame()->getAssetList().size()>0)
@@ -58,24 +79,11 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             }
             if (event->type() == QEvent::MouseButtonPress)
             {
-                QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-                this->scenario->getCurrentGame()->getAssetList().first()->setRotation(this->scenario->getCurrentGame()->getAssetList().first()->rotation()+0.2);
-                this->scenario->getCurrentGame()->getAssetList().first()->setX(mouseEvent->pos().x()-this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center().x());
-                this->scenario->getCurrentGame()->getAssetList().first()->setY(mouseEvent->pos().y()-this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center().y());
-                if(this->scenario->getCurrentGame()->getAssetList().first()->rotation()>90)
-                {
-                    if(this->scenario->getCurrentGame()->getAssetList().first()->x() > 200) //TODO refaire la condition
-                    {
-                        std::string s = std::to_string(this->scenario->getCurrentGame()->getAssetList().first()->x());
-                        char const *pchar = s.c_str();
-                        qInfo(pchar);
-                    }
-                    else
-                    {
-                        qInfo("Perdu");
-                    }
-                }
-
+                this->buttonPressed=true;
+            }
+            if (event->type() == QEvent::MouseButtonRelease)
+            {
+                this->buttonPressed=false;
             }
 
           return false;
@@ -96,10 +104,14 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                 if(this->scenario->getCurrentGame()->getAssetList().first()->collidingItems().size()>0)
                 {
                     qInfo("Bravo");
+                    this->scenario->getCurrentGame()->setWin(true);
+                    this->scenario->nextGame();
+                    this->scenario->getCurrentGame()->initView(this->getVue());
                 }
                 else
                 {
                     qInfo("Perdu");
+                    this->scenario->getCurrentGame()->initView(this->getVue());
                 }
             }
 
@@ -118,7 +130,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                       this->scenario->getCurrentGame()->getAssetList().last()->setX(this->scenario->getCurrentGame()->getAssetList().last()->x()-0.5);
                       if(this->scenario->getCurrentGame()->getAssetList().first()->x()>850)
                       {
-                          qInfo("Bravo"); //TODO faire la condition de victoire
+                          qInfo("Bravo");
                           this->scenario->getCurrentGame()->setWin(true);
                           this->scenario->nextGame();
                           this->scenario->getCurrentGame()->initView(this->getVue());
@@ -126,7 +138,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
                       if(this->scenario->getCurrentGame()->getAssetList().first()->collidingItems().size()>0)
                       {
-                          qInfo("Perdu"); //TODO faire la condition de défaite
+                          qInfo("Perdu");
                           this->scenario->getCurrentGame()->initView(this->getVue());
                       }
 

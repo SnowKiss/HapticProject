@@ -9,7 +9,10 @@ QList<Game*> Scenario::getStoryboard() const
 void Scenario::nextGame()
 {
     this->storyboard.pop_front();
-    this->currentGame=this->storyboard.first();
+    if(this->storyboard.size()>0)
+        this->currentGame=this->storyboard.first();
+    else
+        exit(0);
 }
 
 void Scenario::addGame(Game* g)

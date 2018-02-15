@@ -14,6 +14,7 @@
 #include <string>
 #include "drinkgame.h"
 #include "keygame.h"
+#include "panneau.h"
 
 int main(int argc, char *argv[])
 {
@@ -23,9 +24,13 @@ int main(int argc, char *argv[])
     // on crée les scenes et le scenario
     Scenario * s = new Scenario();
 
+    Panneau * p1 = new Panneau("Bienvenue");
+    s->addGame(p1);
+    s->setCurrentGame(p1);
+
     DrinkGame * dg = new DrinkGame();
     s->addGame(dg);
-    s->setCurrentGame(dg);
+    //s->setCurrentGame(dg);
 
     KeyGame * kg = new KeyGame();
     s->addGame(kg);
