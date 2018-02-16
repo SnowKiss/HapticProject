@@ -2,7 +2,7 @@
 #define MAINWINDOW_H
 
 #include "scenario.h"
-
+#include "haptichandler.h"
 #include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QMainWindow>
@@ -28,6 +28,7 @@ public:
 private:
     Ui::MainWindow *ui;
     bool eventFilter(QObject *obj, QEvent *event);
+    HapticHandler *hapHandler;
 };
 
 #endif // MAINWINDOW_H

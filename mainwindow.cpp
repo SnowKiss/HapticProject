@@ -27,6 +27,9 @@ MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     this->vue=ui->graphicsView;
     this->vue->setFixedSize(850,550);
     qApp->installEventFilter(this);
+
+  //  this -> hapHandler = new HapticHandler(this);
+   // this->hapHandler->getMomentum()->Start();
 }
 
 MainWindow::~MainWindow()
@@ -151,6 +154,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
 
             break;
         default:
+            return false;
             break;
         }
     }
