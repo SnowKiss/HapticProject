@@ -9,7 +9,7 @@ class WalkGame : public Game
 {
 private:
 public:
-    WalkGame();
+    WalkGame(int profil);
     virtual void initView(QGraphicsView *vue);
 };
 

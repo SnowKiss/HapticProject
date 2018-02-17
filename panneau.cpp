@@ -1,6 +1,6 @@
 #include "panneau.h"
 
-Panneau::Panneau(std::string msg)
+Panneau::Panneau(std::string msg, int profil): Game(profil)
 {
     this->message=msg;
     this->type=GameType::PAN;

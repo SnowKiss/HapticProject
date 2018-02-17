@@ -7,7 +7,7 @@ class KeyGame: public Game
 {
 private:
 public:
-    KeyGame();
+    KeyGame(int profil);
     void initView(QGraphicsView *vue);
 };
 

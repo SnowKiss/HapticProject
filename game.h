@@ -12,8 +12,9 @@ protected:
     QList<QGraphicsItem*> assetList;
     bool gameover;
     bool win;
+    int profil;
 public:
-    Game();
+    Game(int profil);
     QList<QGraphicsItem *> getAssetList() const;
     void addItem(QGraphicsItem* item);
     GameType getType() const;
@@ -22,6 +23,7 @@ public:
     bool getWin() const;
     void setWin(bool value);
     virtual void initView(QGraphicsView *vue);
+    int getProfil();
 };
 
 #endif // GAME_H

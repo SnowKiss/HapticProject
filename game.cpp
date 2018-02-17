@@ -5,8 +5,9 @@ GameType Game::getType() const
     return type;
 }
 
-Game::Game()
+Game::Game(int profil)
 {
+    this->profil = profil;
     this->gameover=false;
     this->win=false;
 }
@@ -46,3 +47,6 @@ void Game::initView(QGraphicsView *vue)
 
 }
 
+int Game::getProfil(){
+    return profil;
+}

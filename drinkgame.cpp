@@ -1,6 +1,6 @@
 #include "drinkgame.h"
 
-DrinkGame::DrinkGame()
+DrinkGame::DrinkGame(int profil):Game(profil)
 {
     this->type=GameType::DG;
 }
@@ -16,21 +16,21 @@ qInfo("2");
     qInfo("21");
     scene->setSceneRect(0,0,850,550);
     qInfo("22");
-    QString backGround = "C:/Users/John/Documents/HapticProject/asset/bg_drinkgame.png";
+    QString backGround = "C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/bg_drinkgame.png";
     qInfo("23");
     scene->setBackgroundBrush(QBrush(QImage(backGround)));
 qInfo("3");
     // creation de la bouteille
     //QGraphicsRectItem *player = new QGraphicsRectItem();
     //player->setRect(0,100,120,220);
-    QGraphicsPixmapItem *player = new QGraphicsPixmapItem(QPixmap("C:/Users/John/Documents/HapticProject/asset/bottle.png"));
+    QGraphicsPixmapItem *player = new QGraphicsPixmapItem(QPixmap("C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/bottle.png"));
     player->moveBy(0,100);
     scene->addItem(player);
 qInfo("4");
     // creation du verre
     //QGraphicsRectItem *verre = new QGraphicsRectItem();
     //verre->setRect(700,400,80,110);
-    QGraphicsPixmapItem *verre = new QGraphicsPixmapItem(QPixmap("C:/Users/John/Documents/HapticProject/asset/empty_glass.png"));
+    QGraphicsPixmapItem *verre = new QGraphicsPixmapItem(QPixmap("C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/empty_glass.png"));
     verre->moveBy(700,400);
     scene->addItem(verre);
 qInfo("5");

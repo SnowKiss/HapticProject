@@ -9,7 +9,7 @@ class Panneau: public Game
 private:
     std::string message;
 public:
-    Panneau(std::string msg);
+    Panneau(std::string msg, int profil);
     virtual void initView(QGraphicsView *vue);
 };
 

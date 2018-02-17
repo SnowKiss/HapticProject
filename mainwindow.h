@@ -26,11 +26,12 @@ public:
     ~MainWindow();
     QGraphicsView *getVue() const;
     void setScenario(Scenario * s);
-
 private:
     Ui::MainWindow *ui;
     bool eventFilter(QObject *obj, QEvent *event);
     HapticHandler *hHandler;
+    void changeProfile();
+    int currentProfile;
 };
 
 #endif // MAINWINDOW_H

@@ -28,7 +28,7 @@ MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     this->vue->setFixedSize(850,550);
     qApp->installEventFilter(this);
     this->hHandler = new HapticHandler(this);
-    hHandler->getProjet()->Start("Momentum");
+    this->currentProfile = 0;
 }
 
 MainWindow::~MainWindow()
@@ -51,6 +51,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     {
         switch (this->scenario->getCurrentGame()->getType()) {
         case GameType::DG:
+            changeProfile();
             if(buttonPressed)
             {
                 this->scenario->getCurrentGame()->getAssetList().first()->setTransformOriginPoint(this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center());
@@ -92,6 +93,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
           return false;
             break;
         case GameType::KG:
+            changeProfile();
             if (event->type() == QEvent::MouseMove)
             {
                   if(this->scenario->getCurrentGame()->getAssetList().size()>0)
@@ -121,7 +123,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
           return false;
             break;
         case GameType::WG:
-
+            changeProfile();
             if (event->type() == QEvent::MouseMove)
             {
                   if(this->scenario->getCurrentGame()->getAssetList().size()>0)
@@ -150,6 +152,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             return false;
             break;
         case GameType::PAN:
+            this->hHandler->getProjet()->Stop("Inertia");
+            this->hHandler->getProjet()->Stop("Momentum");
             if (event->type() == QEvent::MouseButtonPress)
             {
                 if(next==false)
@@ -168,11 +172,32 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             return false;
             break;
         default:
+            changeProfile();
             return false;
             break;
         }
     }
 
+}
+
+void MainWindow::changeProfile()
+{
+    int i = this->scenario->getCurrentGame()->getProfil();
+    if(!(i == currentProfile)){
+        switch(i){
+        case 1 :
+            this->hHandler->getProjet()->Start("Inertia");
+            break;
+        case 2 :
+            this->hHandler->getProjet()->Start("Momentum");
+            break;
+        case 0 :
+        default:
+            this->hHandler->getProjet()->Stop("Inertia");
+            this->hHandler->getProjet()->Stop("Momentum");
+            break;
+        }
+    }
 }
 
 
