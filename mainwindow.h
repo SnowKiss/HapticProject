@@ -6,6 +6,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QMainWindow>
+#include "haptichandler.h"
 
 namespace Ui {
 class MainWindow;
@@ -29,6 +30,7 @@ public:
 private:
     Ui::MainWindow *ui;
     bool eventFilter(QObject *obj, QEvent *event);
+    HapticHandler *hHandler;
 };
 
 #endif // MAINWINDOW_H

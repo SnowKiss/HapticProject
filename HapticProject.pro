@@ -11,6 +11,13 @@ greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 TARGET = HapticProject
 TEMPLATE = app
 
+
+INCLUDEPATH += "C:\Program Files\Immersion Corporation\IFC23\inc"
+
+LIBS += "C:\Program Files\Immersion Corporation\IFC23\lib\IFC23.lib"
+
+
+
 # The following define makes your compiler emit warnings if you use
 # any feature of Qt which has been marked as deprecated (the exact warnings
 # depend on your compiler). Please consult the documentation of the
@@ -31,7 +38,8 @@ SOURCES += \
     game.cpp \
     scenario.cpp \
     drinkgame.cpp \
-    panneau.cpp
+    panneau.cpp \
+    haptichandler.cpp
 
 HEADERS += \
         mainwindow.h \
@@ -41,7 +49,8 @@ HEADERS += \
     gametype.h \
     scenario.h \
     drinkgame.h \
-    panneau.h
+    panneau.h \
+    haptichandler.h
 
 FORMS += \
         mainwindow.ui
