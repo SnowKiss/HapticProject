@@ -9,10 +9,17 @@
 #include <QApplication>
 #include <ifc.h>
 
-
+class MainWindow;
 
 class HapticHandler
 {
+private:
+    CImmMouse *souris;
+    CImmProject  *projet;
+    CImmInertia *inertie;
+    CImmInertia *momentum;
+    MainWindow *mFenetre;
+
 public:
     HapticHandler(MainWindow * fen);
     ~HapticHandler();
@@ -21,13 +28,7 @@ public:
     CImmInertia *getInertie();
     CImmInertia *getMomentum();
 
-private:
-    CImmMouse *souris;
-    CImmProject  *projet;
 
-    CImmInertia *inertie;
-    CImmInertia *momentum;
-    MainWindow *mFenetre;
 
 };
 

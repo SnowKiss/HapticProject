@@ -1,6 +1,5 @@
 #include "haptichandler.h"
-//#include "mainwindow.h"
-
+#include "mainwindow.h"
 HapticHandler::HapticHandler(MainWindow * fen):mFenetre(fen)
 {
     souris = new CImmMouse();

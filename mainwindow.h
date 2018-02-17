@@ -28,7 +28,7 @@ public:
 private:
     Ui::MainWindow *ui;
     bool eventFilter(QObject *obj, QEvent *event);
-    HapticHandler *hapHandler;
+    HapticHandler * hapHandler; //  ??
 };
 
 #endif // MAINWINDOW_H
