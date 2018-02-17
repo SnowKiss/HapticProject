@@ -14,7 +14,7 @@ HapticHandler::HapticHandler(MainWindow * fen):mFenetre(fen)
     }
 
     projet = new CImmProject();
-    if (projet->OpenFile("C:\\Users\\M2IHM\\Documents\\Antoine\\profil.ifr", souris))
+    if (projet->OpenFile("C:\\Users\\M2IHM\\Documents\\Antoine\\HapticProject\\profil.ifr", souris))
    {//le chemin par d�faut est celui o� se trouve la g�n�ration : xxx-build-desktop/
         qDebug()<<"Projet ifr charg�";
         inertie = new CImmInertia();

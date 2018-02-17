@@ -28,8 +28,8 @@ MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     this->vue->setFixedSize(850,550);
     qApp->installEventFilter(this);
 
-  //  this -> hapHandler = new HapticHandler(this);
-   // this->hapHandler->getMomentum()->Start();
+    this -> hapHandler = new HapticHandler(this);
+    this->hapHandler->getMomentum()->Start();
 }
 
 MainWindow::~MainWindow()
