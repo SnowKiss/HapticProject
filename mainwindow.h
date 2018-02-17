@@ -25,6 +25,8 @@ public:
     QGraphicsView *getVue() const;
     void setScenario(Scenario * s);
 
+    void startEffect();
+
 private:
     Ui::MainWindow *ui;
     bool eventFilter(QObject *obj, QEvent *event);

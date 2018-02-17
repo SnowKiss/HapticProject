@@ -45,6 +45,8 @@ int main(int argc, char *argv[])
     // on crée la vue
     MainWindow w(s);
     w.show();
+    w.startEffect();
+
 
 
     // on charge la vue du jeu courant

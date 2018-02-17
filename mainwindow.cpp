@@ -14,10 +14,17 @@ void MainWindow::setScenario(Scenario *s)
     this->scenario = s;
 }
 
+void MainWindow::startEffect()
+{
+    this->hapHandler->getProjet()->Start("Inertia");
+}
+
 MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    this -> hapHandler = new HapticHandler(this);
+
     this->scenario = scenario;
     this->setMouseTracking(true);
     ui->setupUi(this);
@@ -28,8 +35,6 @@ MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     this->vue->setFixedSize(850,550);
     qApp->installEventFilter(this);
 
-    this -> hapHandler = new HapticHandler(this);
-    this->hapHandler->getMomentum()->Start();
 }
 
 MainWindow::~MainWindow()

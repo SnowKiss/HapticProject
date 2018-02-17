@@ -14,28 +14,29 @@ HapticHandler::HapticHandler(MainWindow * fen):mFenetre(fen)
     }
 
     projet = new CImmProject();
-    if (projet->OpenFile("C:\\Users\\M2IHM\\Documents\\Antoine\\HapticProject\\profil.ifr", souris))
-   {//le chemin par d�faut est celui o� se trouve la g�n�ration : xxx-build-desktop/
+
+    if (projet->OpenFile("C:\\Users\\M2IHM\\Documents\\Antoine\\HapticProject\\profil.ifr", souris)){
+        //le chemin par d�faut est celui o� se trouve la g�n�ration : xxx-build-desktop/
         qDebug()<<"Projet ifr charg�";
-        inertie = new CImmInertia();
-        if (!inertie->InitializeFromProject(*projet, "Inertie", souris,
-                            IMM_PARAM_NODOWNLOAD))
-        {qDebug()<<"===>Erreur chargement Inertie";
+    /*
+        inertie = projet->CImmCompoundEffect("Inertie", souris, IMM_PARAM_NODOWNLOAD);
+        if (!inertie)
+        {qDebug()<<"===>Erreur chargement LigneIS ";
             delete inertie;
             inertie = NULL;
         }
-        momentum = new CImmInertia();
-        if (!momentum->InitializeFromProject(*projet, "Momentum", souris,
-                            IMM_PARAM_NODOWNLOAD))
-        {qDebug()<<"===>Erreur chargement Momentum";
+        momentum = projet->CImmCompoundEffect("Momentum", souris, IMM_PARAM_NODOWNLOAD);
+        if (!momentum)
+        {qDebug()<<"===>Erreur chargement LigneIS ";
             delete momentum;
             momentum = NULL;
-        }
+        }*/
     }
     else
     {
         qDebug()<<"===>Erreur chargement projet IFR avec code "<<CIFCErrors::GetLastErrorCode() ;
     }
+    qDebug()<<"I'm done creating";
 }
 
 HapticHandler::~HapticHandler()
