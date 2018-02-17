@@ -34,6 +34,7 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
 void MainWindow::mouseMoveEvent(QMouseEvent *event)
 {
 
@@ -62,7 +63,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                     }
                     else
                     {
-                        qInfo("Perdu");
+                        //qInfo("Perdu");
                         this->buttonPressed=false;
                         this->scenario->getCurrentGame()->initView(this->getVue());
                     }
@@ -103,14 +104,14 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             {
                 if(this->scenario->getCurrentGame()->getAssetList().first()->collidingItems().size()>0)
                 {
-                    qInfo("Bravo");
+                    //qInfo("Bravo");
                     this->scenario->getCurrentGame()->setWin(true);
                     this->scenario->nextGame();
                     this->scenario->getCurrentGame()->initView(this->getVue());
                 }
                 else
                 {
-                    qInfo("Perdu");
+                    //qInfo("Perdu");
                     this->scenario->getCurrentGame()->initView(this->getVue());
                 }
             }
@@ -124,33 +125,48 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                   if(this->scenario->getCurrentGame()->getAssetList().size()>0)
                   {
                       QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
-                      //this->scenario->getCurrentGame()->initView(this->getVue());
                       this->scenario->getCurrentGame()->getAssetList().first()->setY(mouseEvent->pos().y()-this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center().y());
                       this->scenario->getCurrentGame()->getAssetList().first()->setX(this->scenario->getCurrentGame()->getAssetList().first()->x()+0.2);
                       this->scenario->getCurrentGame()->getAssetList().last()->setX(this->scenario->getCurrentGame()->getAssetList().last()->x()-0.5);
+                      this->scenario->getCurrentGame()->getAssetList().at(2)->setX(this->scenario->getCurrentGame()->getAssetList().at(2)->x()-0.1);
                       if(this->scenario->getCurrentGame()->getAssetList().first()->x()>850)
                       {
-                          qInfo("Bravo");
-                          this->scenario->getCurrentGame()->setWin(true);
+                          //this->scenario->getCurrentGame()->setWin(true);
                           this->scenario->nextGame();
                           this->scenario->getCurrentGame()->initView(this->getVue());
                       }
 
-                      if(this->scenario->getCurrentGame()->getAssetList().first()->collidingItems().size()>0)
+                      else if(this->scenario->getCurrentGame()->getAssetList().first()->collidingItems().size()>0)
                       {
-                          qInfo("Perdu");
+                          //qInfo("Perdu");
                           this->scenario->getCurrentGame()->initView(this->getVue());
                       }
 
                   }
 
             }
+            return false;
+            break;
+        case GameType::PAN:
+            if (event->type() == QEvent::MouseButtonPress)
+            {
+                if(next==false)
+                {
+                    //qInfo("passe");
+                    this->scenario->nextGame();
+                    this->scenario->getCurrentGame()->initView(this->getVue());
+                    next=true;
+                }
 
-
-          return false;
-
+            }
+            if (event->type() == QEvent::MouseButtonRelease)
+            {
+                next=false;
+            }
+            return false;
             break;
         default:
+            return false;
             break;
         }
     }

@@ -13,14 +13,20 @@ void KeyGame::initView(QGraphicsView *vue)
     // initialisation de la scène
     QGraphicsScene *scene = new QGraphicsScene();
     scene->setSceneRect(0,0,850,550);
-
-    // creation de la clef
-    QGraphicsEllipseItem *player = new QGraphicsEllipseItem(200,200,20,20);
-    scene->addItem(player);
+    QString backGround = "C:/Users/John/Documents/HapticProject/asset/bg_keygame.png";
+    scene->setBackgroundBrush(QBrush(QImage(backGround)));
 
     // creation de la serrure
-    QGraphicsEllipseItem *serrure = new QGraphicsEllipseItem(500,300,100,100);
+    //QGraphicsEllipseItem *serrure = new QGraphicsEllipseItem(560,300,70,70);
+    QGraphicsPixmapItem *serrure = new QGraphicsPixmapItem(QPixmap("C:/Users/John/Documents/HapticProject/asset/keyhole.png"));
+    serrure->moveBy(560,300);
     scene->addItem(serrure);
+
+    // creation de la clef
+    //QGraphicsEllipseItem *player = new QGraphicsEllipseItem(200,200,20,20);
+    QGraphicsPixmapItem *player = new QGraphicsPixmapItem(QPixmap("C:/Users/John/Documents/HapticProject/asset/key.png"));
+    player->moveBy(200,200);
+    scene->addItem(player);
 
     vue->setScene(scene);
 

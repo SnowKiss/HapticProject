@@ -15,8 +15,11 @@ void Panneau::initView(QGraphicsView *vue)
 
     // creation du message
     //scene->addText(QString::fromStdString(this->message));
-
+    QGraphicsSimpleTextItem *text = new QGraphicsSimpleTextItem(QString::fromStdString(this->message));
+    text->setFont( QFont( "Calibri", 20 ) );
+    text->setPos(QPoint(425-text->boundingRect().width()/2,275-text->boundingRect().height()/2));
+    scene->addItem(text);
     vue->setScene(scene);
-    scene->addText("bogotobogo.com", QFont("Arial", 20) );
-    this->assetList.clear();
+
+    //this->assetList.clear();
 }

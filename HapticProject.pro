@@ -45,3 +45,5 @@ HEADERS += \
 
 FORMS += \
         mainwindow.ui
+
+CONFIG += warn_off
