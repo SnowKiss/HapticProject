@@ -1,8 +1,8 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <cstddef>
-
 #include <QMouseEvent>
+//#include <QMediaPlaylist>
 
 QGraphicsView *MainWindow::getVue() const
 {
@@ -29,6 +29,20 @@ MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     qApp->installEventFilter(this);
     this->hHandler = new HapticHandler(this);
     this->currentProfile = 0;
+
+    QGraphicsScene *scene = new QGraphicsScene();
+    scene->setSceneRect(0,0,850,550);
+    this->vue->setScene(scene);
+/*
+    QMediaPlaylist *playlist = new QMediaPlaylist();
+    playlist->addMedia(QUrl("C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/music.mp3"));
+    playlist->setPlaybackMode(QMediaPlaylist::Loop);
+
+    QMediaPlayer *music = new QMediaPlayer();
+    music->setPlaylist(playlist);
+    music->play();
+*/
+
 }
 
 MainWindow::~MainWindow()

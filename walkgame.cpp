@@ -12,7 +12,8 @@ void WalkGame::initView(QGraphicsView *vue)
     vue->setMouseTracking(true);
 
     // initialisation de la scène
-    QGraphicsScene *scene = new QGraphicsScene();
+    QGraphicsScene *scene = vue->scene();
+    scene->clear();
     scene->setSceneRect(0,0,850,550);
     QString backGround = "C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/bg_walkgame.png";
     scene->setBackgroundBrush(QBrush(QImage(backGround)));

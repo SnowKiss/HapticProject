@@ -12,7 +12,8 @@ void DrinkGame::initView(QGraphicsView *vue)
     vue->setMouseTracking(true);
 qInfo("2");
     // initialisation de la scène
-    QGraphicsScene *scene = new QGraphicsScene();
+    QGraphicsScene *scene = vue->scene();
+    scene->clear();
     qInfo("21");
     scene->setSceneRect(0,0,850,550);
     qInfo("22");

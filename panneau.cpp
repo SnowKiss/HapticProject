@@ -10,8 +10,11 @@ void Panneau::initView(QGraphicsView *vue)
 {
 
     // initialisation de la scène
-    QGraphicsScene *scene = new QGraphicsScene();
+    QGraphicsScene *scene = vue->scene();
+    scene->clear();
     scene->setSceneRect(0,0,850,550);
+    QString backGround = "C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/bg_panneau.png";
+    scene->setBackgroundBrush(QBrush(QImage(backGround)));
 
     // creation du message
     //scene->addText(QString::fromStdString(this->message));

@@ -2,7 +2,6 @@
 #define MAINWINDOW_H
 
 #include "scenario.h"
-
 #include <QGraphicsItem>
 #include <QGraphicsView>
 #include <QMainWindow>
