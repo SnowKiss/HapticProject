@@ -2,7 +2,7 @@
 #include "ui_mainwindow.h"
 #include <cstddef>
 #include <QMouseEvent>
-//#include <QMediaPlaylist>
+#include <QMediaPlaylist>
 
 QGraphicsView *MainWindow::getVue() const
 {
@@ -41,7 +41,7 @@ MainWindow::MainWindow(Scenario *scenario, QWidget *parent) :
     QMediaPlayer *music = new QMediaPlayer();
     music->setPlaylist(playlist);
     music->play();
-*/
+/*/
 
 }
 
@@ -65,7 +65,6 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
     {
         switch (this->scenario->getCurrentGame()->getType()) {
         case GameType::DG:
-            changeProfile();
             if(buttonPressed)
             {
                 this->scenario->getCurrentGame()->getAssetList().first()->setTransformOriginPoint(this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center());
@@ -88,6 +87,8 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
             }
             if (event->type() == QEvent::MouseMove)
             {
+                changeProfile();
+
                   if(this->scenario->getCurrentGame()->getAssetList().size()>0)
                   {
                       QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
