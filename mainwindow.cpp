@@ -145,7 +145,7 @@ bool MainWindow::eventFilter(QObject *obj, QEvent *event)
                   {
                       QMouseEvent *mouseEvent = static_cast<QMouseEvent*>(event);
                       this->scenario->getCurrentGame()->getAssetList().first()->setY(mouseEvent->pos().y()-this->scenario->getCurrentGame()->getAssetList().first()->boundingRect().center().y());
-                      this->scenario->getCurrentGame()->getAssetList().first()->setX(this->scenario->getCurrentGame()->getAssetList().first()->x()+0.2);
+                      this->scenario->getCurrentGame()->getAssetList().first()->setX(this->scenario->getCurrentGame()->getAssetList().first()->x()+0.4);
                       this->scenario->getCurrentGame()->getAssetList().last()->setX(this->scenario->getCurrentGame()->getAssetList().last()->x()-0.5);
                       this->scenario->getCurrentGame()->getAssetList().at(2)->setX(this->scenario->getCurrentGame()->getAssetList().at(2)->x()-0.1);
                       if(this->scenario->getCurrentGame()->getAssetList().first()->x()>850)
