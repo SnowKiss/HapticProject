@@ -4,7 +4,10 @@
 #include "game.h"
 
 
-
+/**
+ * @brief La classe du troisème mini-jeu
+ * Hérite de Game
+ */
 class WalkGame : public Game
 {
 private:

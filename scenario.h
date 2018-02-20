@@ -5,7 +5,10 @@
 #include "mainwindow.h"
 
 #include <QList>
-
+/**
+ * @brief La liste des jeux
+ * Permet de gérer facilement l'enchainement des mini-jeux
+ */
 class Scenario
 {
 private:

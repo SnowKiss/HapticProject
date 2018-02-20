@@ -3,7 +3,10 @@
 #include "game.h"
 
 #include <string>
-
+/**
+ * @brief La classe des panneau
+ * Herite de game par commodité.
+ */
 class Panneau: public Game
 {
 private:

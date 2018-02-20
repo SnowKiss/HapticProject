@@ -10,7 +10,10 @@
 #include <ifc.h>
 
 class MainWindow;
-
+/**
+ * @brief La classe de gestion haptique
+ * Initie la souris et lit le fichier d'effet
+ */
 class HapticHandler
 {
 private:

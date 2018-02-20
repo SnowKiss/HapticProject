@@ -3,6 +3,11 @@
 
 #include "game.h"
 
+/**
+ * @brief La classe du premier mini-jeu
+ * Hérite de la clase Game
+ *
+ */
 class DrinkGame: public Game
 {
 private:

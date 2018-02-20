@@ -11,6 +11,11 @@ namespace Ui {
 class MainWindow;
 }
 
+/**
+ * @brief La classe principale de la vue.
+ * Crée la vue, et se fournie au minijeu pour qu'ils s'initient.
+ * Gère également les évenements.
+ */
 class MainWindow : public QMainWindow
 {
     Q_OBJECT

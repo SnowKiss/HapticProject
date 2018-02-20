@@ -2,7 +2,9 @@
 #define KEYGAME_H
 
 #include "game.h"
-
+/**
+ * @brief La classe du second mini-jeu
+ */
 class KeyGame: public Game
 {
 private:
