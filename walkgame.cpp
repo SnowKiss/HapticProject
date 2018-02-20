@@ -29,7 +29,7 @@ void WalkGame::initView(QGraphicsView *vue)
     //QGraphicsRectItem *poubelle = new QGraphicsRectItem();
     //poubelle->setRect(250,100,80,80);
     QGraphicsPixmapItem *poubelle = new QGraphicsPixmapItem(QPixmap("C:/Users/M2IHM/Documents/Antoine/HapticProject/asset/trash.png"));
-    poubelle->moveBy(250,200);
+    poubelle->moveBy(230,200);
     scene->addItem(poubelle);
 
     // creation du passant
